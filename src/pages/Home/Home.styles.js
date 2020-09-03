@@ -5,3 +5,8 @@ export const StyledSection = styled.section`
   width: 50%;
   text-align: center;
 `;
+
+export const StyledErrorSection = styled(StyledSection)`
+  color: red;
+  font-weight: bold;
+`;

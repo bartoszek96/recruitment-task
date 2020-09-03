@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { StyledSection } from './Home.styles';
+import { StyledSection, StyledErrorSection } from './Home.styles';
 import axios from 'axios';
 
 const Home = () => {
 
   const [data, setData] = useState(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setError(false);
         const result = await axios('https://reqres.in/api/users?page=2');
-        setData(result.data.data);
+        if (result.status !== 200) {
+          throw new Error();
+        } else {
+          setData(result.data.data);
+        }
       } catch {
-
+        setError(true);
       }
     }
     fetchData();
@@ -20,6 +26,7 @@ const Home = () => {
 
   return (
     <StyledSection>
+      {error && <StyledErrorSection>Data fetching error!</StyledErrorSection>}
       <ul>
         {
           data &&
