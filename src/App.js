@@ -26,7 +26,7 @@ function App() {
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/link1' component={Link1} />
-          <Route path='/link2' component={Link2} />
+          <Route path='/link2' component={() => <Link2 handleBurgerClick={handleBurgerClick} isSideNavOpened={isSideNavOpened} />} />
           <Route component={Error} />
         </Switch>
       </HashRouter>

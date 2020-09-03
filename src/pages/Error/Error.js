@@ -1,8 +1,9 @@
 import React from 'react';
+import { StyledSection } from './Error.styles';
 
 const Error = () => {
   return (
-    <div>Error Page</div>
+    <StyledSection>This page does not exist</StyledSection>
   );
 }
  
