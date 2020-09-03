@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { StyledSideNav, StyledMenuItem } from './MenuItemsContainer.styles';
 import { NavLink } from 'react-router-dom';
+import MenuTextVisibilityContext from '../../contexts/MenuTextVisibilityContext/MenuTextVisibilityContext';
 
 const MenuItemsContainer = ({ isSideNavOpened, handleBurgerClick }) => {
+
+  const isTextVisible = useContext(MenuTextVisibilityContext);
 
   const menuItems = [
     {
@@ -22,6 +25,7 @@ const MenuItemsContainer = ({ isSideNavOpened, handleBurgerClick }) => {
           <StyledMenuItem>{item.label}</StyledMenuItem>
         </NavLink>
       ))}
+      {isTextVisible && 'TEKST'}
     </StyledSideNav>
   );
 }

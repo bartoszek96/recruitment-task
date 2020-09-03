@@ -10,3 +10,7 @@ export const StyledErrorSection = styled(StyledSection)`
   color: red;
   font-weight: bold;
 `;
+
+export const StyledList = styled.ul`
+  padding: 20px;
+`;

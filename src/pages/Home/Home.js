@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { StyledSection, StyledErrorSection } from './Home.styles';
+import { StyledSection, StyledErrorSection, StyledList } from './Home.styles';
+import Button from '@material-ui/core/Button';
 import axios from 'axios';
 
-const Home = () => {
+const Home = ({ handleShowMenuTextButtonClick }) => {
 
   const [data, setData] = useState(null);
   const [error, setError] = useState(false);
@@ -26,15 +27,16 @@ const Home = () => {
 
   return (
     <StyledSection>
+      <Button variant="contained" color="primary" onClick={handleShowMenuTextButtonClick}>POKAŻ</Button>
       {error && <StyledErrorSection>Data fetching error!</StyledErrorSection>}
-      <ul>
+      <StyledList>
         {
           data &&
           data.map(user => (
             <li key={user.id}>{user.first_name} {user.last_name}</li>
           ))
         }
-      </ul>
+      </StyledList>
     </StyledSection>
   );
 }
