@@ -12,6 +12,10 @@ export const StyledSideNav = styled.nav`
   padding-top: 60px;
   border-right: 5px solid black;
   background: rgb(165, 165, 165);
+
+  & a {
+    text-decoration: none;
+  }
 `;
 
 export const StyledMenuItem = withStyles({

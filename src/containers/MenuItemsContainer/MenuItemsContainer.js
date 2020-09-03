@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyledSideNav, StyledMenuItem } from './MenuItemsContainer.styles';
+import { NavLink } from 'react-router-dom';
 
-const MenuItemsContainer = ({ isSideNavOpened }) => {
+const MenuItemsContainer = ({ isSideNavOpened, handleBurgerClick }) => {
 
   const menuItems = [
     {
@@ -17,7 +18,9 @@ const MenuItemsContainer = ({ isSideNavOpened }) => {
   return (
     <StyledSideNav isSideNavOpened={isSideNavOpened}>
       {menuItems.map((item) => (
-        <StyledMenuItem key={item.label}>{item.label}</StyledMenuItem>
+        <NavLink to={item.link} onClick={handleBurgerClick} key={item.label}>
+          <StyledMenuItem>{item.label}</StyledMenuItem>
+        </NavLink>
       ))}
     </StyledSideNav>
   );
