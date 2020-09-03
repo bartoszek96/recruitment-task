@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { StyledSection, StyledErrorSection, StyledList } from './Home.styles';
+import {
+  StyledSection,
+  StyledErrorSection,
+  StyledList,
+  StyledLoaderSection
+} from './Home.styles';
 import Button from '@material-ui/core/Button';
+import ReactLoading from "react-loading";
 import axios from 'axios';
 
 const Home = ({ handleShowMenuTextButtonClick }) => {
 
   const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -17,11 +24,14 @@ const Home = ({ handleShowMenuTextButtonClick }) => {
           throw new Error();
         } else {
           setData(result.data.data);
+          setIsLoading(false);
         }
       } catch {
         setError(true);
+        setIsLoading(false);
       }
     }
+    setIsLoading(true);
     fetchData();
   }, [])
 
@@ -29,6 +39,9 @@ const Home = ({ handleShowMenuTextButtonClick }) => {
     <StyledSection>
       <Button variant="contained" color="primary" onClick={handleShowMenuTextButtonClick}>POKAŻ</Button>
       {error && <StyledErrorSection>Data fetching error!</StyledErrorSection>}
+      <StyledLoaderSection>
+        {isLoading && <ReactLoading type='spin' color='black' />}
+      </StyledLoaderSection>
       <StyledList>
         {
           data &&

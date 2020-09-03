@@ -11,6 +11,12 @@ export const StyledErrorSection = styled(StyledSection)`
   font-weight: bold;
 `;
 
+export const StyledLoaderSection = styled(StyledSection)`
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+`;
+
 export const StyledList = styled.ul`
   padding: 20px;
 `;
