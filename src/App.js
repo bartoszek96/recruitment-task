@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import GlobalStyle from './GlobalStyle';
-import { HashRouter } from 'react-router-dom';
-import { Route, Switch } from 'react-router-dom';
+import {
+  HashRouter,
+  Route,
+  Switch
+} from 'react-router-dom';
 import MenuTextVisibilityContext from './contexts/MenuTextVisibilityContext/MenuTextVisibilityContext';
+import Burger from './components/Burger/Burger';
+import MenuItemsContainer from './containers/MenuItemsContainer/MenuItemsContainer';
 import Home from './pages/Home/Home';
 import Link1 from './pages/Link1/Link1';
 import Link2 from './pages/Link2/Link2';
 import Error from './pages/Error/Error';
-import MenuItemsContainer from './containers/MenuItemsContainer/MenuItemsContainer';
-import Burger from './components/Burger/Burger';
 
 function App() {
 
