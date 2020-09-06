@@ -1,3 +1,7 @@
+## Try it live
+
+[Recruitment Task](https://bartoszek96.github.io/recruitment-task/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
