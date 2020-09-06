@@ -30,13 +30,15 @@ describe('data fetching', () => {
     expect(screen.getByText('Byron Fields')).toBeInTheDocument();
     expect(screen.getByText('George Edwards')).toBeInTheDocument();
     expect(screen.getByText('Rachel Howell')).toBeInTheDocument();
+    expect(global.fetch).toHaveBeenCalledTimes(1);
   })
 
-  it('shows the error text', async () => {
+  it('shows the error text when promise is rejected', async () => {
     jest.spyOn(global, 'fetch').mockImplementation(() =>
       Promise.reject()
     );
     await act(async () => render(<Home />));
     expect(screen.getByText('Data fetching error!')).toBeInTheDocument();
+    expect(global.fetch).toHaveBeenCalledTimes(1);
   })
 })
