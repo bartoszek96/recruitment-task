@@ -1,9 +1,10 @@
 import React from 'react';
 import { render, screen, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Home from './Home';
+import Home from '../pages/Home/Home';
+import { getUsers } from '../common/usersAPI';
 
-import validData from '../../../__mocks__/validData.json';
+import validData from '../../__mocks__/validData.json';
 
 beforeEach(() => {
   jest.restoreAllMocks();
@@ -42,3 +43,20 @@ describe('data fetching', () => {
     expect(global.fetch).toHaveBeenCalledTimes(1);
   })
 })
+
+describe('renders the component', () => {
+  it('shows the button text', async () => {
+    fetch('https://reqres.in/api/users?page=2')
+      .then(response => response.json())
+      .then(data => console.log(data));
+  })
+})
+
+describe("Users API", () => {
+  test("it returns an array of users", async () => {
+    const json = await getUsers();
+    console.log(json, "odp");
+    console.log(validData, "validdata");
+    expect(json).toMatchObject(validData);
+  });
+});

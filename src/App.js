@@ -15,7 +15,7 @@ import Error from './pages/Error/Error';
 
 function App() {
 
-  const [isSideNavOpened, toggleIsSideNavOpened] = useState(false);
+  const [isSideNavOpened, toggleIsSideNavOpened] = useState(true);
   const [isMenuTextVisible, setIsMenuTextVisible] = useState(false);
 
   const handleBurgerClick = () => {

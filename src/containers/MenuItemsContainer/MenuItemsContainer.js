@@ -9,6 +9,10 @@ const MenuItemsContainer = ({ isSideNavOpened, handleBurgerClick }) => {
 
   const menuItems = [
     {
+      label: "Home",
+      link: ""
+    },
+    {
       label: "Link1",
       link: "link1"
     },
